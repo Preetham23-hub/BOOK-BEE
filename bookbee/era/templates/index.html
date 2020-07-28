@@ -1,0 +1,108 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>BookBee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+      <style>
+     .topnav a:hover {
+    border-bottom: 1px solid black;
+     }
+.navbar-nav ml-auto topnav
+{
+color:black;
+}
+.navbar-collapse
+{
+flex-grow:0;
+position:relative;
+left:50%;
+}
+ul li
+        {
+        padding-right:20px;
+        padding-left:10px;
+
+        }
+  img
+  {
+  position:relative;
+  top: -150px;
+  left:600px;
+  }
+  </style>
+  </head>
+  <body>
+
+      <div id="container">
+        <div class="header">
+          <h1 >BookBee</h1>
+        </div>
+           <div class="main">
+                  <h3> </h3>
+
+          </div>
+          <div class="b" style="position:relative;  left:10%; top:-30% ; width: max-content;">
+          	<nav   class="navbar navbar-expand-lg navbar-light "  style="position:relative; top:-200px; left:-130px; width:950px; font-size: 25px; ">
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="border-style: solid;
+         border-color: white black white black; " >
+            <ul class="navbar-nav ml-auto topnav" >
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" >Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:black;">Contact</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:black;">About</a>
+                </li>
+                {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color:black;">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'booklist' %}" style="color:black;">Book List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:green; font-weight:bold;">Hello {{use}}</a>
+                </li>
+
+                {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signin' %}" style="color:black;">Sign-in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}" style="color:black; ">Register</a>
+                </li>
+               {% endif %}
+            </ul>
+        </div>
+            </nav>
+</div>
+
+</div>
+
+          <img src="{%  static 'tr.png' %}" style="width:320px;">
+      <I style="font-size:22px; position:relative; bottom:-80px; left:50px;" >'A reader lives a thousand lives before he dies. The man who never reads lives only one.'</I>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

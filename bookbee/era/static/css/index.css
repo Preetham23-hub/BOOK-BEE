@@ -1,0 +1,44 @@
+#container {
+  //background-image: url(blue.jpg);
+ // height:700px;
+   //width:850px;
+    overflow:hidden;
+  background-position: center;
+  background-size:box-size;
+}
+.main {
+  height: 100px;
+
+  font-family: "Libre Baskerville", serif;
+}
+.main h3 {
+  padding-top: 20px;
+  padding-left: 650px;
+  color: black;
+  font-weight: bold;
+}
+.header {
+  color: black;
+}
+.header h1 {
+  padding: 50px;
+  padding-left: 60px;
+ font-style: italic;
+font-weight:10;
+
+
+}
+.option {
+    
+    position: relative;
+
+    left: 1300px;
+    top: -270px;
+
+
+}
+.option button
+{
+    margin: 10px;
+}
+

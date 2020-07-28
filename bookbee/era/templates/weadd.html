@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>You added</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>BOOK LIST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+</head>
+<body>
+<h3 style="font-weight:normal; font-style: italic; position: relative; top:15px; left:10px;" >BOOKS YOU HAVE ADDED</h3>
+<a href="{% url 'booklist' %}  " style="position: relative; top:-15px; left:90%;" ><button type="submit" class="btn btn-primary btn-sm">Book list</button> </a>
+<div>
+
+    <table class="table table-dark">
+
+
+       <thead>
+
+           <tr>
+                <th style="padding: .60rem; padding-left:100px;">Image</th>
+               <th style="padding: .60rem; padding-left:100px;">Title</th>
+               <th style="padding: .60rem; padding-left:100px;">Author</th>
+               <th style="padding: .60rem; padding-left:100px;">Download</th>
+               <th style="padding: .60rem;  padding-left:35px; ">Delete</th>
+               <th style="padding: .60rem;  padding-left:35px; ">Update</th>
+           </tr>
+       </thead>
+    <tbody>
+
+
+
+
+
+
+           {% for us in use %}
+           <tr>
+                <td style="padding: 2.0rem;  padding-left:90px;"> <img src="{{ us.image.url }}" alt="{{us.title}}" style="width:130px; height:90px;"> </td>
+               <td style="padding: 2.0rem;  padding-left:90px; font-size: 18px; font-weight:bold;">{{us.title}}</td>
+
+               <td style="padding: 2.0rem;  padding-left:90px; font-size: 18px; font-weight:bold;">{{us.author}}</td>
+
+
+               <td style="padding: 2.0rem;  padding-left:90px; font-size: 18px; font-weight:bold; "><a href="{{ us.pdf.url }}" class="btn btn-primary btn-sm" >
+              Download PDF
+            </a>
+               </td>
+               <td  style="padding: 2.0rem;" >
+                   <form method="post" action="{% url 'delete' us.id %}" >
+                       {% csrf_token %}
+                       <button type="submit" class="btn btn-danger btn-sm" style="">Delete</button>
+                  </form>
+                   </td>
+                 <td  style="padding: 2.0rem;">
+                   <form method="post" action="{% url 'update' us.id %}">
+                       {% csrf_token %}
+                       <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                   </form>
+               </td>
+               </td>
+
+           </tr>
+
+    </tbody>
+        {% endfor %}
+
+
+
+       </table>
+
+</div>
+<div>
+{% for message in messages %}
+<h3 style="position:relative; left:30px; bottom:20px; color:green;">{{message}}</h3>
+
+{% endfor %}
+
+</div>
+</body>
+</html>

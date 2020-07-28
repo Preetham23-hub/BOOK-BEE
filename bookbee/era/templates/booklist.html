@@ -1,0 +1,154 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>BOOK LIST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+      <style>
+
+
+
+
+          .move
+        {
+        margin-top:150px;
+        margin-left:550px;
+
+        border-width: 5px;
+         border-color: red;
+        }
+        .nav-item a label:hover
+        {
+        color: green;
+        }
+
+
+        .navbar-nav ml-auto topnav
+        {
+        color:white;
+        }
+        .navbar-collapse
+        {
+        flex-grow:0;
+        position:relative;
+        left:50%;
+        }
+        ul li
+        {
+        padding-right:20px;
+        padding-left:10px;
+
+        }
+
+
+
+      </style>
+  </head>
+<body  style="width:200px; ">
+
+<h1 style="position:relative; top:50px; left:20px;">BOOK LIST</h1>
+ <nav   class="navbar navbar-expand-lg navbar-light "  style="position:relative;   bottom:50%; left:-10%; width:950px; font-size: 25px; ">
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="border-style: solid; border-color: 0 0 0 0; " >
+            <ul class="navbar-nav ml-auto topnav" >
+                <li class="nav-item active">
+                    <a class="nav-link" href=" /" style="color:black;" ><label>Home </label><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" href="{% url 'upload_book' %}" style="color:black;"><label>Add book</label></a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'weadd' %}" style="color:black;"><label>Added by you</label></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color:black;"><label>Logout</label></a>
+                </li>
+
+
+            </ul>
+        </div>
+            </nav>
+<div>
+
+</div>
+
+
+
+<form class="form-inline" style="position:relative; left:1200px; top:-60px;">
+
+      <table>
+          <th><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searcht" ></th>
+          <th><button class="btn btn-outline-success my-2 my-sm-0"  style="color:black;" type="submit">Search</button></th>
+      </table>
+  </form>
+
+</div>
+
+
+
+<div style="position:relative; left:50px;" >
+    <table class="table table-striped table-dark"  style="width:1400px; ">
+
+       <thead >
+
+           <tr>
+                <th style="padding: .60rem; padding-left:100px;">Image</th>
+               <th style="padding: .60rem;  padding-left:100px;">Title</th>
+               <th style="padding: .60rem;  padding-left:100px;">Author</th>
+               <th style="padding: .60rem;  padding-left:100px;">Download</th>
+
+           </tr>
+       </thead>
+    <tbody>
+
+           {% if book != '' %}
+
+
+
+
+           {% for book in books %}
+           <tr>
+               <td style="padding: 2.0rem;  padding-left:90px;"> <img src="{{ book.image.url }}" alt="{{book.title}}" style="width:130px; height:90px;"> </td>
+               <td style="padding: 2.0rem;  padding-left:90px; font-size: 18px; font-weight:bold;">{{book.title}}</td>
+
+               <td style="padding: 2.0rem;  padding-left:90px;  font-size: 18px; font-weight:bold;">{{book.author}}</td>
+
+
+
+               <td style="padding: 2.0rem;  padding-left:90px;">
+                   <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" >
+                        Download PDF
+                   </a>
+               </td>
+           </tr>
+
+    </tbody>
+        {% endfor %}
+
+        {% else %}
+         <h1> book not found</h1>
+        {% endif %}
+
+       </table>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" >
+    <style>
+        input[type='text']
+        {
+        width:400px;
+        }
+        input[type='email']
+        {
+        width:400px;
+        }
+        input[type='text']::placeholder
+        {
+
+       text-align:center;
+        }
+        input[type='email']::placeholder
+        {
+
+       text-align:center;
+        }
+
+        input[type='password']
+        {
+        width:400px;
+        }
+        input[type='password']::placeholder
+        {
+
+       text-align:center;
+        }
+        .main
+        {
+        margin:200px;
+        position:relative;
+        left:350px;
+        }
+         h2
+    {
+  position : relative;
+  left:700px;
+  top:100px;
+  font-weight:10;
+
+    </style>
+</head>
+<body>
+<h2> Register</h2>
+<div class="main">
+    <form action="/entry/" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+        <div class="form-group">
+               <label>Name</label><br>
+                <input type="text" name="name" placeholder="Enter your Name" required><br>
+
+        </div >
+        <div>
+            <label>Email</label><br>
+            <input type="email" name="email" placeholder="Enter your Email" required><br>
+
+    </div>
+
+
+<div class="form-group">
+    <label>password</label><br>
+    <input type="password" name="pass" placeholder="Enter your Password" required><br>
+
+</div>
+<div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+
+        </div>
+    </form>
+<div>
+{% for message in messages %}
+   <h3> {{message}}</h3>
+    {% endfor %}
+</div>
+
+</body>
+
+</html>

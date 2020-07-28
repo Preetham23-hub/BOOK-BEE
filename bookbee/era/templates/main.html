@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>File Upload</title>
+</head>
+<body>
+<div>
+	<div style="height:200px">
+		<a {% url 'logout' %} > <button value="logout">logout</button> </a>
+			</div>
+	<form enctype="multipart/form-data" method="post" action="{% url 'upload' %}" >
+        {% csrf_token %}
+
+        <div>
+        <input type="text" name="title" placeholder="Enter the title"><input type="text" name="title" placeholder="Enter the title">
+		<input type="file" name="myfile" >
+        <input type="submit" value="submit">
+        </div>
+    </form>
+</div>
+
+<div>
+
+</div>
+
+</body>
+</html>

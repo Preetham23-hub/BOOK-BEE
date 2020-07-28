@@ -1,0 +1,111 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Book</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-4.4.1-dist/css/bootstrap.min.css' %}" >
+    <style>
+        input[type='text']
+        {
+        width:400px;
+        align:center;
+
+        }
+       .f label
+        {
+        color:green;
+        position:relative;
+        left:160px;
+
+        }
+        .move
+        {
+        margin-top:150px;
+        margin-left:550px;
+
+        border-width: 5px;
+         border-color: red;
+        }
+        .nav-item a label:hover
+        {
+        color: green;
+        }
+
+
+        .navbar-nav ml-auto topnav
+        {
+        color:white;
+        }
+        .navbar-collapse
+        {
+        flex-grow:0;
+        position:relative;
+        left:50%;
+        }
+        ul li
+        {
+        padding-right:20px;
+        padding-left:10px;
+
+        }
+
+
+        </style>
+</head>
+<body style="background-color:black">
+<div class="b" style="position:relative;  left:10%; top:-30% ; width: max-content;">
+    <nav   class="navbar navbar-expand-lg navbar-light "  style="position:relative;   bottom:50%; left:-13%; width:950px; font-size: 25px; ">
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="border-style: solid; border-color: 0 0 0 0; " >
+            <ul class="navbar-nav ml-auto topnav" >
+                <li class="nav-item active">
+                    <a class="nav-link" href=" /" style="color:white;" ><label>Home </label><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" href="{% url 'booklist' %}" style="color:white;"><label>Book-list</label></a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="color:white;"><label>About</label></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}" style="color:white;"><label>Logout</label></a>
+                </li>
+
+
+            </ul>
+        </div>
+            </nav>
+</div>
+
+
+<div class="move">
+<form method="post"  enctype="multipart/form-data" >
+
+     {% csrf_token %}
+
+
+        <h5 class="f"> {{form.title|as_crispy_field}}</h5>
+        <h5 class="f"> {{form.author|as_crispy_field}}</h5>
+        <h5 class="f">{{form.image|as_crispy_field}}</h5>
+        <h5 class="f"> {{form.pdf|as_crispy_field}}</h5>
+
+
+    <button type="submit" class="btn btn-success" style="position:relative; left:150px;">Submit</button><br>
+
+</form>
+</div>
+{% for message in messages %}
+<h3 style="position:relative; left:30px; bottom:20px; color:green;">{{message}}</h3>
+
+{% endfor %}
+
+
+</body>
+</html>
