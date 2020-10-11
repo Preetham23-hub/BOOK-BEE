@@ -1,13 +1,13 @@
 # BOOK-BEE
-# Open source django book project
+# Open source Django book project
 Hey
-This is my first django project i used bit of bootstrap bcz i focused more on learning backend and i iused Postgresql as backend.
+This is my first Django project I used a bit of bootstrap because I focused more on learning backend and I used Postgresql as backend.
 Here 'book' is my virtual environment and create your virtual env and install
 asgiref             3.2.7
 check-version       0.0.2
 Django              3.0.5
-django-cleanup      5.0.0
-django-crispy-forms 1.9.1
+Django-cleanup      5.0.0
+Django-crispy-forms 1.9.1
 Pillow              7.1.2
 pip                 20.1.1
 psycopg2            2.8.5
